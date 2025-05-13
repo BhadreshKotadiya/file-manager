@@ -1,0 +1,514 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,700,900);
+
+button.accordion-button.cust-accord {
+    padding: 0;
+    font-size: 18px;
+}
+
+.draggable-item-set {
+    color: #ffffff;
+    opacity: 1;
+    background-color: #7367f0;
+    border: 1px solid #ccc;
+    box-shadow: 0 .125rem .25rem rgba(165, 163, 174, .3);
+}
+
+#jstree a.jstree-anchor.jstree-clicked {
+    padding-right: 0px !important;
+}
+
+#jstree .delete-child-node {
+    margin-left: 5px !important;
+}
+
+.file-manager-container {
+    width: 800px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    align-items: center;
+}
+
+/*
+----------------------
+upload new file button
+----------------------
+*/
+
+.upload-button label {
+    text-align: center;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.upload-button input[type="file"] {
+    display: none;
+}
+
+.hidden-field {
+    display: none;
+}
+
+/* show custome message for file upload */
+.custom-alert {
+    display: none;
+    position: relative;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    transition: opacity 0.5s ease-out;
+}
+
+.custom-alert button.close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.custom-alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.custom-alert-error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+/* show all images in table formate */
+#image-grid {
+    /* Set a max-height (want to show amount of row) */
+    max-height: 548px;
+    overflow-y: auto;
+    /* Add vertical scrollbar */
+    position: relative;
+}
+
+#image-grid::-webkit-scrollbar {
+    width: 10px;
+}
+
+#image-grid::-webkit-scrollbar-thumb {
+    background-color: #c0c0c0;
+    border-radius: 8px;
+}
+
+#image-grid::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
+
+/* Adjust the table to fit the container */
+
+#gridTable td {
+    transition: border-color 0.3s;
+}
+
+#gridTable td:not(.no-files-message):hover {
+    /* border: 2px solid #3498db; */
+    border: 2px solid #12121318;
+    background-color: #7777771c;
+}
+
+.table-hover-tr:hover {
+    background-color: #e0e8ee3d;
+}
+
+.filename {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+.image-table {
+    width: calc(100% - 15px);
+    border-collapse: collapse;
+    table-layout: fixed;
+    position: relative;
+}
+
+.image-table td {
+    padding: 8px;
+    text-align: center;
+    vertical-align: top;
+    width: 21%;
+    box-sizing: border-box;
+}
+
+.image-table img,
+.image-table a {
+    width: 100%;
+    height: 100px;
+    border-radius: 5px;
+    object-fit: contain;
+}
+
+/* for filter not found messge  */
+.no-files-message {
+    text-align: center;
+    font-size: 12px;
+    color: #777;
+    padding: 16.55rem 1.25rem;
+}
+
+
+.image-table .filename {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+    max-width: 100%;
+    color: #000000;
+}
+
+
+.file-section {
+    margin-top: 10px;
+}
+
+
+.emptyMessage {
+    color: #888;
+    font-style: italic;
+}
+
+.file-section b {
+    margin-top: 10px;
+    cursor: pointer;
+    background-color: #e6e6e67e;
+}
+
+.folderList li {
+    cursor: pointer;
+}
+
+/* Style for active folder */
+.active-folder {
+    background-color: #e6e6e67e;
+    color: rgb(8, 0, 0);
+}
+
+/* nav bar */
+.filter-navbar .btn:hover {
+    background-color: rgba(44, 28, 192, 0.062);
+}
+
+.nav-table {
+    line-height: 1;
+}
+
+#path {
+    display: inline-block;
+    padding: 5px;
+    border: 1px solid #ccc;
+    background-color: #f8f9fa;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: auto;
+}
+
+
+.upload-button {
+    white-space: nowrap;
+}
+
+.folder-path::before {
+    /* content: "\2192"; */
+    content: "Folder path:";
+    margin-right: 5px;
+    white-space: nowrap;
+}
+
+.filter-navbar {
+    color: black;
+    /* background-color: rgb(241 241 241); */
+    /* background-color: #f2f2f3; */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.upload-button {
+    flex-shrink: 0;
+}
+
+.btn {
+    white-space: nowrap;
+}
+
+.folder-path.active-folder {
+    color: #020202;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .upload-button {
+        width: 100%;
+        margin-bottom: 8px;
+    }
+
+    .ms-auto {
+        margin-left: auto;
+    }
+}
+
+#filter-input-group {
+    width: auto;
+    overflow: hidden;
+
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    padding: 10px;
+    text-align: center;
+}
+
+
+.image-container img {
+    transition: transform 0.3s ease-in-out;
+}
+
+.image-container:hover img {
+    transform: scale(1.2);
+}
+
+
+
+.image-container:hover img {
+    opacity: 0.3;
+}
+
+
+/* sidebar  */
+.sidebar {
+    width: 200px;
+}
+
+.folder-item {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    list-style-type: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.edit-button-sidebar {
+    display: none;
+}
+
+
+td+td:not(:nth-last-child(2)) {
+    text-align: center;
+}
+
+.table__button-group {
+    visibility: hidden;
+    transition: visibility .06s ease-in;
+}
+
+/*
+-------------------------------------------------------------------
+on hover list layout show anchor tag delete, edit and image preview
+-------------------------------------------------------------------
+*/
+a.custom-styled-link {
+    text-decoration: none;
+    color: #0989ab;
+    font-size: .8rem;
+    font-weight: 500;
+}
+
+a.custom-styled-link:hover {
+    color: #0989ab;
+    opacity: .75;
+}
+
+a.custom-styled-link~a.custom-styled-link:before {
+    content: "|";
+    padding: 0 .35rem;
+}
+
+tr:hover>td .table__button-group {
+    visibility: visible;
+}
+
+@media (max-width: 800px) {
+
+    .table__button-group {
+
+        visibility: visible;
+    }
+}
+
+body * {
+    font-family: Lato !important;
+}
+
+
+
+/* Style for the folder path section */
+.folder-path {
+    display: flex;
+    align-items: center;
+}
+
+.folder-path span::after {
+    content: " > ";
+    margin: 0 5px;
+    color: #777777;
+}
+
+
+/*
+-----------------------------------------
+on hover delete and edit file grid layout
+-----------------------------------------
+*/
+
+.edit-button,
+.delete-button {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.image-container:hover .delete-button {
+    top: 0;
+    display: block;
+}
+
+.image-container:hover .edit-button {
+    top: 25px;
+    display: block;
+}
+
+.image-container {
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+
+
+.delete-button:hover i,
+.edit-button:hover i {
+    color: #690808;
+}
+
+.modal-content-height {
+    height: 850px;
+}
+
+.pricemodel-height {
+    height: 600px;
+}
+
+/*
+--------------------------------------------------------------
+file manager modal partial auto rename, Overwite, set new name
+--------------------------------------------------------------
+*/
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.file-info {
+    margin-bottom: 10px;
+}
+
+.options {
+    margin-top: 20px;
+}
+
+#newNameContainer {
+    margin-top: 10px;
+}
+
+
+.image-preview-modal {
+    display: none;
+    position: absolute;
+    z-index: 9999;
+    left: 0;
+    width: 100%;
+    height: 80%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.37);
+}
+
+.image-preview-modal-content {
+    margin: auto;
+    display: block;
+    max-width: 80%;
+    max-height: 100%;
+}
+
+/* Style the close button */
+.image-preview-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+.a {
+    text-decoration: none !important;
+}
+
+.modal_fade {
+    margin-top: 13%;
+}
+
+
+/* Nested folder css */
+
+.folder-container-img {
+    width: 80px;
+    height: 60px;
+    /* font-size: 60px; */
+}
+
+#gridTableNestedFolders td:hover {
+    border: 2px solid #12121318;
+    background-color: #7777771c;
+}
+
+.list-folder-container {
+    cursor: pointer;
+}
+
+.folder-buttons {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.list-folder-container:hover .folder-buttons {
+    display: block;
+}
