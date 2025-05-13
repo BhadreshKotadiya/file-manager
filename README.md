@@ -1,66 +1,133 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<h1>File Manager</h1>
+    <p>This repository is a simple file management system built with Laravel. The project allows users to perform various file and folder operations such as uploading files, creating and deleting folders, renaming files and folders, and filtering files.</p>
+    <h2>Features</h2>
+    <ul>
+        <li>Upload Files</li>
+        <li>Create and Delete Folders</li>
+        <li>Rename Files and Folders</li>
+        <li>Filter Files by Name, Size, Date (A-Z, Z-A)</li>
+        <li>View Files and Folders</li>
+        <li>Navigate Nested Folders</li>
+        <li>Manage File Upload</li>
+    </ul>
+    <h2>Routes and Their Functions</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Route</th>
+                <th>Controller & Action</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>GET /</td>
+                <td>FileController@showform</td>
+                <td>Shows the file manager interface.</td>
+            </tr>
+            <tr>
+                <td>POST /store-file</td>
+                <td>FileController@storeFile</td>
+                <td>Handles file upload and storage.</td>
+            </tr>
+            <tr>
+                <td>GET /filter-files</td>
+                <td>FileController@filterFilesByName</td>
+                <td>Filters files by name.</td>
+            </tr>
+            <tr>
+                <td>GET /show-folder-images</td>
+                <td>FileController@showFolderImages</td>
+                <td>Displays images from a folder.</td>
+            </tr>
+            <tr>
+                <td>GET /check-folder-availability</td>
+                <td>FileController@checkFolderAvailability</td>
+                <td>Checks if a folder is available for creation.</td>
+            </tr>
+            <tr>
+                <td>POST /create/new/folder</td>
+                <td>FileController@createFolder</td>
+                <td>Creates a new folder.</td>
+            </tr>
+            <tr>
+                <td>POST /delete-file</td>
+                <td>FileController@deleteFile</td>
+                <td>Deletes a specific file.</td>
+            </tr>
+            <tr>
+                <td>GET /layout/list</td>
+                <td>FileController@layoutList</td>
+                <td>Changes the layout view of the file manager.</td>
+            </tr>
+            <tr>
+                <td>GET /filter/files</td>
+                <td>FileController@filterFiles</td>
+                <td>Filters files by different criteria such as size, date, and alphabetical order.</td>
+            </tr>
+            <tr>
+                <td>POST /rename-folder</td>
+                <td>FileController@renameFolder</td>
+                <td>Renames a folder.</td>
+            </tr>
+            <tr>
+                <td>POST /rename-file</td>
+                <td>FileController@renameFile</td>
+                <td>Renames a file.</td>
+            </tr>
+            <tr>
+                <td>GET /check-file-availability</td>
+                <td>FileController@checkFileAvailability</td>
+                <td>Checks if a file already exists before upload.</td>
+            </tr>
+            <tr>
+                <td>POST /manage-file-upload</td>
+                <td>FileController@manageFileUpload</td>
+                <td>Handles file upload management.</td>
+            </tr>
+            <tr>
+                <td>POST /show/nested/folder/images</td>
+                <td>FileController@showNestedFolderImages</td>
+                <td>Displays images from a nested folder.</td>
+            </tr>
+            <tr>
+                <td>POST /back/button</td>
+                <td>FileController@backButton</td>
+                <td>Returns to the previous folder view.</td>
+            </tr>
+            <tr>
+                <td>POST /delete-folder</td>
+                <td>FileController@deleteFolder</td>
+                <td>Deletes a specific folder.</td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>Setup and Installation</h2>
+    <ol>
+        <li>Clone the repository:</li>
+        <pre><code>git clone https://github.com/yourusername/filemanager.git</code></pre>
+        <li>Navigate into the project directory:</li>
+        <pre><code>cd filemanager</code></pre>
+        <li>Install dependencies:</li>
+        <pre><code>composer install</code></pre>
+        <li>Set up your .env file:</li>
+        <pre><code>cp .env.example .env</code></pre>
+        <li>Generate the application key:</li>
+        <pre><code>php artisan key:generate</code></pre>
+        <li>Run database migrations (if needed):</li>
+        <pre><code>php artisan migrate</code></pre>
+        <li>Serve the application:</li>
+        <pre><code>php artisan serve</code></pre>
+    </ol>
+    <h2>Usage</h2>
+    <p>Once the application is set up and running, you can use the web interface to perform various file and folder operations such as:</p>
+    <ul>
+        <li>Upload files using the file upload form.</li>
+        <li>Create new folders and manage your file storage structure.</li>
+        <li>Rename or delete files and folders.</li>
+        <li>Apply filters to files based on name, size, date, and alphabetical order.</li>
+        <li>Navigate through nested folders and view contents.</li>
+    </ul>
+    <h2>License</h2>
+    <p>This project is licensed under the MIT License - see the <a href="LICENSE">LICENSE</a> file for details.</p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
-
-## About Laravel
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
